@@ -9,7 +9,7 @@ resource "argocd_project" "this" {
  
   spec {
     description  = "argocd application project"
-    source_repos = ["https://github.com/camptocamp/devops-stack-module-argocd.git"]
+    source_repos = ["https://github.com/ducksify/devops-stack-module-argocd.git"]
  
     destination {
       server    = "https://kubernetes.default.svc"
@@ -55,7 +55,7 @@ resource "argocd_application" "this" {
     project = argocd_project.this.metadata.0.name
 
     source {
-      repo_url        = "https://github.com/camptocamp/devops-stack-module-argocd.git"
+      repo_url        = "https://github.com/ducksify/devops-stack-module-argocd.git"
       path            = "charts/argocd"
       target_revision = "main"
       helm {
